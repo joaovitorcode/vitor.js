@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import { Layout } from '../components/Layout'
+import { Banner } from '../components/Banner'
+import { Post } from '../components/Post'
 
 export default function Home() {
   return (
@@ -9,9 +12,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className="">Hello World</h1>
-      </main>
+      <Layout>
+        <main className="max-w-3xl mx-auto">
+          <Banner />
+          <div className="flex flex-col gap-4 py-4">
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+          </div>
+        </main>
+      </Layout>
     </div>
   )
 }
