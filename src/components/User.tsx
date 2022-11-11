@@ -6,11 +6,13 @@ export const User = () => {
       <Image
         src="/avatar.jpg"
         alt="Imagem de perfil"
-        width={28}
-        height={28}
+        width={24}
+        height={24}
         style={{ borderRadius: '24px' }}
       />
-      <span className="text-sm text-gray-900 font-semibold">João Vitor</span>
+      <span className="text-xs sm:text-sm text-gray-900 font-semibold">
+        João Vitor
+      </span>
     </div>
   )
 }

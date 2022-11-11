@@ -6,11 +6,11 @@ import { Tag } from './Tag'
 export const Post = () => {
   return (
     <Link href="/post/1">
-      <div className="w-full p-4 flex gap-4 shadow-md rounded-[8px]">
-        <div className="flex flex-col flex-1 gap-4 py-2 pl-2">
+      <div className="w-full p-3 sm:p-4 flex gap-3 sm:gap-4 shadow-md rounded-[8px]">
+        <div className="flex flex-col flex-1 gap-2 sm:gap-4 py-1 sm:py-2 pl-1 sm:pl-2">
           <div className="flex justify-between">
             <User />
-            <div className="flex gap-2">
+            <div className="hidden sm:flex gap-2">
               <Tag>React</Tag>
               <Tag>JavaScript</Tag>
               <Tag>WebDev</Tag>
@@ -18,21 +18,25 @@ export const Post = () => {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-xl text-gray-900 font-semibold">
+            <h2 className="sm:text-xl text-gray-900 font-semibold leading-[19px] line-clamp-2">
               The Power of React Hooks - Create an app using only this feature
               in React
             </h2>
-            <p className="text-gray-700">
+            <p className="hidden sm:inline text-gray-700">
               React hooks are a new addition to the react library and has since
               been widely adopted by react developers
             </p>
           </div>
           <div className="flex gap-4">
-            <span className="text-sm text-gray-700">Posted on 10 Nov 22</span>
-            <span className="text-sm text-gray-700">5 min read</span>
+            <span className="text-xs sm:text-sm text-gray-700 leading-[15px]">
+              Posted on 10 Nov 22
+            </span>
+            <span className="text-xs sm:text-sm text-gray-700 leading-[15px]">
+              5 min read
+            </span>
           </div>
         </div>
-        <div className="relative w-[208px] h-[208px]">
+        <div className="relative h-[98px] sm:h-[208px] aspect-square">
           <Image
             src="/cover.jpg"
             alt="Imagem de capa"

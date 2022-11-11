@@ -17,8 +17,8 @@ const PostPage = () => {
       </Head>
 
       <Layout>
-        <div className="max-w-3xl mx-auto flex flex-col gap-4 py-4">
-          <div className="flex justify-between">
+        <div className="max-w-3xl mx-auto flex flex-col gap-3 sm:gap-4 py-4 px-4 sm:px-0">
+          <div className="flex justify-between flex-wrap gap-4 sm:gap-0">
             <User />
             <div className="flex gap-2">
               <Tag>React</Tag>
@@ -28,20 +28,24 @@ const PostPage = () => {
             </div>
           </div>
 
-          <h2 className="text-3xl text-gray-900 font-semibold">
+          <h2 className="text-xl sm:text-3xl text-gray-900 font-semibold]">
             The Power of React Hooks - Create an app using only this feature in
             React
           </h2>
 
-          <p className="text-gray-700 text-xl">
+          <p className="text-gray-700 sm:text-xl">
             React hooks are a new addition to the react library and has since
             been widely adopted by react developers
           </p>
 
           <div className="flex gap-4">
-            <span className="text-sm text-gray-700">Posted on 10 Nov 22</span>
-            <span className="text-sm text-gray-700">Updated on 10 Nov 22</span>
-            <span className="text-sm text-gray-700">5 min read</span>
+            <span className="text-xs sm:text-sm text-gray-700">
+              Posted on 10 Nov 22
+            </span>
+            <span className="text-xs sm:text-sm text-gray-700">
+              Updated on 10 Nov 22
+            </span>
+            <span className="text-xs sm:text-sm text-gray-700">5 min read</span>
           </div>
 
           <div className="relative w-full aspect-video">
