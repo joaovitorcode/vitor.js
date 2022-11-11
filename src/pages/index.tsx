@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout'
 import { Banner } from '../components/Banner'
 import { Post } from '../components/Post'
 
-export default function Home() {
+const HomePage = () => {
   return (
     <div>
       <Head>
@@ -26,3 +26,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default HomePage

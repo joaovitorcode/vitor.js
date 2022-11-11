@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export const Header = () => {
   return (
-    <header className="w-full p-6 bg-white flex justify-between fixed z-10">
+    <header className="sticky top-0 z-10 w-full p-6 bg-white flex justify-between">
       <Link href="/">
         <Image
           src="/logo.svg"

@@ -8,12 +8,10 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <div className="h-screen flex flex-col">
       <Header />
-      <div className="w-full h-[calc(80px - 100vh)] absolute top-20">
-        {children}
-        <Footer />
-      </div>
+      <div className="w-full flex-1">{children}</div>
+      <Footer />
     </div>
   )
 }
