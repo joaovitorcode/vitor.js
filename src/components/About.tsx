@@ -24,7 +24,7 @@ export const About = () => {
         <ul className="flex gap-6">
           <li>
             <a
-              className="text-gray-900 hover:text-green-400"
+              className="text-gray-900 hover:text-white"
               href="https://github.com/joaovitorcode"
               target="_blank"
               rel="noreferrer"
@@ -34,7 +34,7 @@ export const About = () => {
           </li>
           <li>
             <a
-              className="text-gray-900 hover:text-green-400"
+              className="text-gray-900 hover:text-white"
               href="https://www.linkedin.com/in/joaovitorcode/"
               target="_blank"
               rel="noreferrer"

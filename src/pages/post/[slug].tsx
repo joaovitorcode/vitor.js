@@ -28,7 +28,7 @@ const PostPage = () => {
             </div>
           </div>
 
-          <h2 className="text-xl sm:text-3xl text-gray-900 font-semibold]">
+          <h2 className="text-xl sm:text-3xl text-gray-900 font-semibold">
             The Power of React Hooks - Create an app using only this feature in
             React
           </h2>
