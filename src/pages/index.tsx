@@ -13,7 +13,7 @@ const HomePage = () => {
       </Head>
 
       <Layout>
-        <main className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <Banner />
           <div className="flex flex-col gap-4 py-4">
             <Post />
@@ -21,7 +21,7 @@ const HomePage = () => {
             <Post />
             <Post />
           </div>
-        </main>
+        </div>
       </Layout>
     </div>
   )
