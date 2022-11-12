@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
+import { useDarkMode } from '../hooks/useDarkMode'
 
 export const ToggleColorModeButton = () => {
-  const [isDark, setIsDark] = useState(false)
+  const { isDark, setIsDark } = useDarkMode()
 
   useEffect(() => {
     const htmlElement = document.querySelector('html')
