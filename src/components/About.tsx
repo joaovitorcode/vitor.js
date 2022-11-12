@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 export const About = () => {
   return (
     <div className="w-full flex flex-wrap shadow-md">
-      <div className="flex-1 p-12 flex flex-col gap-6 justify-center items-center bg-white rounded-t-[4px] sm:rounded-l-[4px]">
+      <div className="flex-1 p-12 flex flex-col gap-6 justify-center items-center bg-white dark:bg-gray-800 rounded-t-[4px] sm:rounded-tr-none sm:rounded-l-[4px]">
         <div className="relative w-24 h-24">
           <Image
             src="/avatar.jpg"
@@ -13,9 +13,11 @@ export const About = () => {
             style={{ borderRadius: '100%' }}
           />
         </div>
-        <p className="text-3xl text-gray-900">I&apos;m J. Vitor F.</p>
+        <p className="text-3xl text-gray-900 dark:text-white">
+          I&apos;m J. Vitor F.
+        </p>
       </div>
-      <div className="flex-1 p-12 flex flex-col gap-6 justify-center items-center bg-green-400 rounded-b-[4px] sm:rounded-r-[4px]">
+      <div className="flex-1 p-12 flex flex-col gap-6 justify-center items-center bg-green-400 rounded-b-[4px] sm:rounded-bl-none sm:rounded-r-[4px]">
         <p className="text-gray-900 text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
           scelerisque, purus ac imperdiet dignissim, sapien purus ullamcorper

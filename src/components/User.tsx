@@ -10,7 +10,7 @@ export const User = () => {
         height={24}
         style={{ borderRadius: '24px' }}
       />
-      <span className="text-xs sm:text-sm text-gray-900 font-semibold">
+      <span className="text-xs sm:text-sm text-gray-900 dark:text-white font-semibold">
         João Vitor
       </span>
     </div>

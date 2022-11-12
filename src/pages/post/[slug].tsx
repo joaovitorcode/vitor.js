@@ -28,24 +28,26 @@ const PostPage = () => {
             </div>
           </div>
 
-          <h2 className="text-xl sm:text-3xl text-gray-900 font-semibold">
+          <h2 className="text-xl sm:text-3xl text-gray-900 dark:text-white font-semibold">
             The Power of React Hooks - Create an app using only this feature in
             React
           </h2>
 
-          <p className="text-gray-700 sm:text-xl">
+          <p className="text-gray-700 dark:text-gray-200 sm:text-xl">
             React hooks are a new addition to the react library and has since
             been widely adopted by react developers
           </p>
 
           <div className="flex gap-4">
-            <span className="text-xs sm:text-sm text-gray-700">
+            <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-200">
               Posted on 10 Nov 22
             </span>
-            <span className="text-xs sm:text-sm text-gray-700">
+            <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-200">
               Updated on 10 Nov 22
             </span>
-            <span className="text-xs sm:text-sm text-gray-700">5 min read</span>
+            <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-200">
+              5 min read
+            </span>
           </div>
 
           <div className="relative w-full aspect-video">
@@ -57,7 +59,7 @@ const PostPage = () => {
             />
           </div>
 
-          <div>Markdown Content</div>
+          <div className="text-white">Markdown Content</div>
 
           <Divider>Sobre o autor</Divider>
           <About />

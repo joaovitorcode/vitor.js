@@ -22,30 +22,32 @@ const AboutPage = () => {
                 style={{ borderRadius: '100%' }}
               />
             </div>
-            <h2 className="font-semibold text-2xl text-gray-900">
+            <h2 className="font-semibold text-2xl text-gray-900 dark:text-white">
               J. Vitor F.
             </h2>
-            <p className="text-lg text-gray-700">Junior React Developer</p>
+            <p className="text-lg text-gray-700 dark:text-gray-200">
+              Junior React Developer
+            </p>
           </div>
-          <p className="text-gray-900">
+          <p className="text-gray-900 dark:text-white">
             Initially, I didn&apos;t have a great design in mind. So I just
             started coding and it turned out better than I expected (trust me, I
             thought worse). You will see two versions of my portfolio. There is
             an older one and a newer one.
           </p>
-          <p className="text-gray-900">
+          <p className="text-gray-900 dark:text-white">
             Initially, I didn&apos;t have a great design in mind. So I just
             started coding and it turned out better than I expected (trust me, I
             thought worse). You will see two versions of my portfolio. There is
             an older one and a newer one.
           </p>
-          <p className="text-gray-900">
+          <p className="text-gray-900 dark:text-white">
             Initially, I didn&apos;t have a great design in mind. So I just
             started coding and it turned out better than I expected (trust me, I
             thought worse). You will see two versions of my portfolio. There is
             an older one and a newer one.
           </p>
-          <p className="text-gray-900">
+          <p className="text-gray-900 dark:text-white">
             Initially, I didn&apos;t have a great design in mind. So I just
             started coding and it turned out better than I expected (trust me, I
             thought worse). You will see two versions of my portfolio. There is
