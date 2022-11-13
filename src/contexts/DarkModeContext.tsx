@@ -7,8 +7,8 @@ import {
 } from 'react'
 
 interface DarkModeContextProps {
-  isDark: boolean
-  setIsDark: Dispatch<SetStateAction<boolean>>
+  isDark: string
+  setIsDark: Dispatch<SetStateAction<string>>
 }
 
 interface DarkModeContextProviderProps {
@@ -16,7 +16,7 @@ interface DarkModeContextProviderProps {
 }
 
 const DEFAULT_VALUE = {
-  isDark: false,
+  isDark: '',
   setIsDark: () => {},
 }
 
