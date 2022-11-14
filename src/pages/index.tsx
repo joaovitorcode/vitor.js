@@ -1,9 +1,12 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { Layout } from '../components/Layout'
 import { Banner } from '../components/Banner'
 import { Post } from '../components/Post'
+import groq from 'groq'
+import client from '../../client'
 
-const HomePage = () => {
+const HomePage = ({ posts }: any) => {
   return (
     <div>
       <Head>
@@ -15,16 +18,41 @@ const HomePage = () => {
       <Layout>
         <div className="max-w-3xl mx-auto">
           <Banner />
-          <div className="flex flex-col gap-4 py-4">
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-          </div>
+          <ul className="flex flex-col gap-4 py-4">
+            {posts.length > 0 &&
+              posts.map((post: any) => (
+                <li key={post._id} className="list-none">
+                  <Link href={`/post/${post?.slug?.current}`}>
+                    <Post post={post} />
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
       </Layout>
     </div>
   )
+}
+
+export const getStaticProps = async () => {
+  const posts = await client.fetch(groq`
+    *[_type == "post" && publishedAt < now()] | order(publishedAt desc){
+      title,
+      "name": author->name,
+      "categories": categories[]->title,
+      "authorImage": author->image,
+      _createdAt,
+      _updatedAt,
+      slug,
+      _id,
+    }
+  `)
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 
 export default HomePage
