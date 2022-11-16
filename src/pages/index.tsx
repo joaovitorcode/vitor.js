@@ -21,7 +21,7 @@ const HomePage = ({ posts }: any) => {
           <ul className="flex flex-col gap-4 py-4">
             {posts.length > 0 &&
               posts.map((post: any) => (
-                <li key={post._id} className="list-none">
+                <li key={post.slug} className="list-none">
                   <Link href={`/post/${post?.slug?.current}`}>
                     <Post post={post} />
                   </Link>
@@ -38,13 +38,12 @@ export const getStaticProps = async () => {
   const posts = await client.fetch(groq`
     *[_type == "post" && publishedAt < now()] | order(publishedAt desc){
       title,
-      "name": author->name,
+      caption,
       "categories": categories[]->title,
-      "authorImage": author->image,
       _createdAt,
-      _updatedAt,
+      readingTime,
+      mainImage,
       slug,
-      _id,
     }
   `)
 

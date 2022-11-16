@@ -2,14 +2,11 @@ import Image from 'next/image'
 import { User } from './User'
 import { Tag } from './Tag'
 
+import client from '../../client'
+import { useNextSanityImage } from 'next-sanity-image'
+
 export const Post = ({ post }: any) => {
-  const {
-    title = 'Missing title',
-    name = 'Missing name',
-    categories,
-    authorImage,
-    _createdAt,
-  } = post
+  const imageProps = useNextSanityImage(client, post?.mainImage)
 
   return (
     <div className="w-full p-3 sm:p-4 flex gap-3 sm:gap-4 bg-white dark:bg-gray-800 shadow-md rounded-[8px]">
@@ -18,7 +15,7 @@ export const Post = ({ post }: any) => {
           <User />
           <div className="hidden sm:flex gap-2">
             <ul className="flex gap-2">
-              {categories.map((category: string) => (
+              {post?.categories.map((category: string) => (
                 <li key={category}>
                   <Tag>{category}</Tag>
                 </li>
@@ -28,28 +25,30 @@ export const Post = ({ post }: any) => {
         </div>
         <div className="flex flex-col gap-2">
           <h2 className="sm:text-xl text-gray-900 dark:text-white font-semibold leading-[19px] line-clamp-2">
-            {title}
+            {post?.title}
           </h2>
           <p className="hidden sm:inline text-gray-700 dark:text-gray-200">
-            React hooks are a new addition to the react library and has since
-            been widely adopted by react developers
+            {post?.caption}
           </p>
         </div>
         <div className="flex gap-4">
           <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-[15px]">
-            Posted on {new Date(_createdAt).toDateString()}
+            Posted on {new Date(post?._createdAt).toLocaleString()}
           </span>
           <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 leading-[15px]">
-            5 min read
+            {post?.readingTime}
           </span>
         </div>
       </div>
       <div className="relative h-[98px] sm:h-[208px] aspect-square">
         <Image
-          src="/cover.jpg"
+          {...(imageProps as any)}
           alt="Imagem de capa"
-          fill
-          style={{ objectFit: 'cover', borderRadius: '4px' }}
+          style={{
+            objectFit: 'cover',
+            borderRadius: '4px',
+            aspectRatio: ' 1 / 1',
+          }}
         />
       </div>
     </div>
