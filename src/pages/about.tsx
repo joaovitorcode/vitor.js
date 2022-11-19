@@ -14,14 +14,13 @@ const AboutPage = () => {
       <Layout>
         <div className="max-w-3xl mx-auto flex flex-col gap-3 sm:gap-4 py-4 px-4 sm:px-0">
           <div className="flex flex-col gap-2 items-center">
-            <div className="relative w-24 h-24">
-              <Image
-                src="/avatar.jpg"
-                alt="Foto de perfil"
-                fill
-                style={{ borderRadius: '100%' }}
-              />
-            </div>
+            <Image
+              src="/avatar.jpg"
+              alt="Foto de perfil"
+              width={96}
+              height={96}
+              style={{ borderRadius: '100%' }}
+            />
             <h2 className="font-semibold text-2xl text-gray-900 dark:text-white">
               J. Vitor F.
             </h2>

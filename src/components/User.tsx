@@ -5,7 +5,7 @@ export const User = () => {
     <div className="flex gap-2 items-center">
       <Image
         src="/avatar.jpg"
-        alt="Imagem de perfil"
+        alt="Foto de perfil"
         width={24}
         height={24}
         style={{ borderRadius: '24px' }}

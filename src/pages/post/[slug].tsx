@@ -78,6 +78,7 @@ const PostPage = ({ post }: any) => {
             <Image
               {...(imageProps as any)}
               alt="Imagem de capa"
+              priority
               style={{ objectFit: 'cover', borderRadius: '4px' }}
             />
           </div>

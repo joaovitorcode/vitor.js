@@ -5,14 +5,13 @@ export const About = () => {
   return (
     <div className="w-full flex flex-wrap shadow-md">
       <div className="flex-1 p-12 flex flex-col gap-6 justify-center items-center bg-white dark:bg-gray-800 rounded-t-[4px] sm:rounded-tr-none sm:rounded-l-[4px]">
-        <div className="relative w-24 h-24">
-          <Image
-            src="/avatar.jpg"
-            alt="Foto de perfil"
-            fill
-            style={{ borderRadius: '100%' }}
-          />
-        </div>
+        <Image
+          src="/avatar.jpg"
+          alt="Foto de perfil"
+          width={96}
+          height={96}
+          style={{ borderRadius: '100%' }}
+        />
         <p className="text-3xl text-gray-900 dark:text-white">
           I&apos;m J. Vitor F.
         </p>
