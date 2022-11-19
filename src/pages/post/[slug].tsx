@@ -6,15 +6,21 @@ import { Tag } from '../../components/Tag'
 import { Divider } from '../../components/Divider'
 import { About } from '../../components/About'
 // import { Post } from '../../components/Post'
+import { PostProps } from '../../../typings'
 
 import groq from 'groq'
 import client from '../../../client'
 import { useNextSanityImage } from 'next-sanity-image'
 import { PortableText } from '@portabletext/react'
 
-const PostPage = ({ post }: any) => {
+interface Props {
+  post: PostProps
+}
+
+const PostPage = ({ post }: Props) => {
   const imageProps = useNextSanityImage(client, post?.mainImage)
 
+  console.log(post.body)
   const ptComponents = {
     types: {
       image: ({ value }: any) => {
@@ -23,7 +29,7 @@ const PostPage = ({ post }: any) => {
         }
         return (
           <Image
-            {...(imageProps as any)}
+            {...imageProps}
             alt=""
             loading="lazy"
             style={{ objectFit: 'cover', borderRadius: '4px' }}
@@ -76,7 +82,7 @@ const PostPage = ({ post }: any) => {
 
           <div className="relative w-full aspect-video">
             <Image
-              {...(imageProps as any)}
+              {...imageProps}
               alt="Imagem de capa"
               priority
               style={{ objectFit: 'cover', borderRadius: '4px' }}
@@ -84,7 +90,7 @@ const PostPage = ({ post }: any) => {
           </div>
 
           <div className="text-gray-900 dark:text-white">
-            <PortableText value={post?.body} components={ptComponents} />
+            <PortableText value={post?.body as any} components={ptComponents} />
           </div>
 
           <Divider>Sobre o autor</Divider>
@@ -108,6 +114,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   readingTime,
   mainImage,
   body,
+  slug,
 }`
 
 export const getStaticPaths = async () => {

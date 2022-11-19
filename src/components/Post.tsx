@@ -4,8 +4,13 @@ import { Tag } from './Tag'
 
 import client from '../../client'
 import { useNextSanityImage } from 'next-sanity-image'
+import { PostProps } from '../../typings'
 
-export const Post = ({ post }: any) => {
+interface Props {
+  post: PostProps
+}
+
+export const Post = ({ post }: Props) => {
   const imageProps = useNextSanityImage(client, post?.mainImage)
 
   return (
@@ -42,7 +47,7 @@ export const Post = ({ post }: any) => {
       </div>
       <div className="relative h-[98px] sm:h-[208px] aspect-square">
         <Image
-          {...(imageProps as any)}
+          {...imageProps}
           alt="Imagem de capa"
           style={{
             objectFit: 'cover',
