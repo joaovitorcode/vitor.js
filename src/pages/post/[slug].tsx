@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Layout } from '../../components/Layout'
 import { User } from '../../components/User'
 import { Tag } from '../../components/Tag'
 import { Divider } from '../../components/Divider'
 import { About } from '../../components/About'
-// import { Post } from '../../components/Post'
+import { Post } from '../../components/Post'
 import { PostProps } from '../../../typings'
 
 import groq from 'groq'
@@ -13,31 +14,22 @@ import client from '../../../client'
 import { useNextSanityImage } from 'next-sanity-image'
 import { PortableText } from '@portabletext/react'
 
+import {
+  ImageComponent,
+  ListItemComponent,
+  UnorderedListComponent,
+  AnchorComponent,
+  ParagraphComponent,
+  Heading2Component,
+  Heading1Component,
+} from '../../styles/portableText'
+
 interface Props {
   post: PostProps
 }
 
 const PostPage = ({ post }: Props) => {
   const imageProps = useNextSanityImage(client, post?.mainImage)
-
-  console.log(post.body)
-  const ptComponents = {
-    types: {
-      image: ({ value }: any) => {
-        if (!value?.asset?._ref) {
-          return null
-        }
-        return (
-          <Image
-            {...imageProps}
-            alt=""
-            loading="lazy"
-            style={{ objectFit: 'cover', borderRadius: '4px' }}
-          />
-        )
-      },
-    },
-  }
 
   return (
     <div>
@@ -85,20 +77,49 @@ const PostPage = ({ post }: Props) => {
               {...imageProps}
               alt="Imagem de capa"
               priority
+              sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
               style={{ objectFit: 'cover', borderRadius: '4px' }}
             />
           </div>
 
           <div className="text-gray-900 dark:text-white">
-            <PortableText value={post?.body as any} components={ptComponents} />
+            <PortableText
+              value={post?.body as any}
+              components={{
+                block: {
+                  h1: Heading1Component,
+                  h2: Heading2Component,
+                  normal: ParagraphComponent,
+                },
+                marks: {
+                  link: AnchorComponent,
+                },
+                list: {
+                  bullet: UnorderedListComponent,
+                },
+                listItem: {
+                  bullet: ListItemComponent,
+                },
+                types: {
+                  image: ImageComponent,
+                },
+              }}
+            />
           </div>
 
           <Divider>Sobre o autor</Divider>
           <About />
           <Divider>Recomendados</Divider>
-          {/* <Post />
-          <Post />
-          <Post /> */}
+
+          <ul className="flex flex-col gap-4 py-4">
+            <li key={post?.slug?.current} className="list-none">
+              <Link href={`/post/${post?.slug?.current}`}>
+                <Post post={post} />
+              </Link>
+            </li>
+          </ul>
         </div>
       </Layout>
     </div>
@@ -136,6 +157,7 @@ export const getStaticProps = async (context: any) => {
     props: {
       post,
     },
+    revalidate: 60,
   }
 }
 

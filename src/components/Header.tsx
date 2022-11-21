@@ -12,6 +12,7 @@ export const Header = () => {
             src="/logo.svg"
             alt="Logo do blog vitor.js"
             fill
+            priority
             sizes="(max-width: 640px) 80px, 107px"
           />
         </div>
